@@ -7,7 +7,7 @@
         "phpmetrics/phpmetrics": "^2.6"
     },
     "require-dev": {
-        "phpstan/phpstan": "dev-master",
+        "phpstan/phpstan": "^0.12.21",
         "vimeo/psalm": "^3.11"
     },
     "scripts" :{
