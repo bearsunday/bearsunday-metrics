@@ -1,0 +1,29 @@
+{
+    "name": "bear/metrics",
+    "description": "BEAR.Sunday software metrics",
+    "license": ["MIT"],
+    "require": {
+        "bear/package": "^1.0",
+        "phpmetrics/phpmetrics": "^2.6"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "dev-master",
+        "vimeo/psalm": "^3.11"
+    },
+    "scripts" :{
+        "setup": [
+            "cp -r vendor/ray/aop/src src/ray.aop",
+            "cp -r vendor/ray/di/src src/ray.di",
+            "cp -r vendor/ray/web-param-module/src src/ray.web-param-module",
+            "cp -r vendor/bear/resource/src src/bear.resource",
+            "cp -r vendor/bear/sunday/src src/bear.sunday",
+            "cp -r vendor/bear/package/src src/bear.package",
+            "cp -r vendor/bear/app-meta/src src/bear.app-meta",
+            "cp -r vendor/bear/query-repository/src src/bear.query-repository",
+            "cp -r vendor/bear/streamer/src src/bear.streamer"
+        ],
+        "metrics": ["phpmetrics --report-html=build/metrics/ src"],
+        "phpstan": ["phpstan analyse -l max src --no-progress"],
+        "psalm": ["psalm --monochrome"]
+    }
+}
